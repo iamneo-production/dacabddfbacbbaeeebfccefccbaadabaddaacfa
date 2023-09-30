@@ -1,6 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import {useState} from 'react'
 function App() {
   const [display, setDisplay] = useState('0');
   const [firstOperand, setFirstOperand] = useState(null);
@@ -62,7 +62,37 @@ function App() {
   };
   return (
     <div className="App">
-      
+      <div className="calculator">
+      <div data-testid="result-display" className="display">
+        {display}
+      </div>
+      <div className="buttons">
+        <div className="row">
+          <button onClick={() => handleNumberClick('7')}>7</button>
+          <button onClick={() => handleNumberClick('8')}>8</button>
+          <button onClick={() => handleNumberClick('9')}>9</button>
+          <button onClick={() => handleOperatorClick('/')}>/</button>
+        </div>
+        <div className="row">
+          <button onClick={() => handleNumberClick('4')}>4</button>
+          <button onClick={() => handleNumberClick('5')}>5</button>
+          <button onClick={() => handleNumberClick('6')}>6</button>
+          <button onClick={() => handleOperatorClick('*')}>*</button>
+        </div>
+        <div className="row">
+          <button onClick={() => handleNumberClick('1')}>1</button>
+          <button onClick={() => handleNumberClick('2')}>2</button>
+          <button onClick={() => handleNumberClick('3')}>3</button>
+          <button onClick={() => handleOperatorClick('-')}>-</button>
+        </div>
+        <div className="row">
+          <button onClick={() => handleNumberClick('0')}>0</button>
+          <button onClick={() => handleClearClick()}>C</button>
+          <button onClick={() => handleEqualsClick()}>=</button>
+          <button onClick={() => handleOperatorClick('+')}>+</button>
+        </div>
+      </div>
+    </div>
     </div>
   );
 }
